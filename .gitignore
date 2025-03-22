@@ -174,4 +174,4 @@ cython_debug/
 .pypirc
 
 # Proxies
-socks5.txt
+proxies.txt

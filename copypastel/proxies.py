@@ -7,4 +7,4 @@ def get_random_proxy() -> str:
 
 
 def get_proxies() -> list[str]:
-    return Path("socks5.txt").read_text().splitlines()
+    return Path("proxies.txt").read_text().splitlines()
