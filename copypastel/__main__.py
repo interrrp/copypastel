@@ -6,9 +6,7 @@ from requests import HTTPError
 
 from copypastel.copypasta import get_random_copypasta
 from copypastel.notification import send_notification
-
-MINUTE = 60
-INTERVAL = 5 * MINUTE
+from copypastel.settings import get_interval_secs
 
 
 def main() -> None:
@@ -20,7 +18,8 @@ def main() -> None:
             send_notification(copypasta)
         except (AttributeError, HTTPError) as err:
             print(err)
-        sleep(INTERVAL)
+
+        sleep(get_interval_secs())
 
 
 if __name__ == "__main__":

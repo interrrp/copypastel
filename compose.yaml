@@ -1,0 +1,4 @@
+services:
+  copypastel:
+    build: .
+    restart: unless-stopped
