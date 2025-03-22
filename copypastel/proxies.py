@@ -7,4 +7,4 @@ def get_random_proxy() -> str:
 
 
 def get_proxies() -> list[str]:
-    return [f"socks5://{proxy}" for proxy in Path("socks5.txt").read_text().splitlines()]
+    return [f"socks5h://{proxy}" for proxy in Path("socks5.txt").read_text().splitlines()]
