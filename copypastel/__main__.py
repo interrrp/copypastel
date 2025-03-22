@@ -1,5 +1,3 @@
-# ruff: noqa: T201 Allow prints
-
 from time import sleep
 
 from requests import HTTPError

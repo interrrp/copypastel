@@ -23,6 +23,7 @@ def get_random_copypasta() -> Copypasta:
 
 def get_recent_copypastas() -> list[Copypasta]:
     proxy = get_random_proxy()
+    print(f"Using SOCKS5 proxy {proxy} to fetch copypasta")
 
     response = requests.post(
         COPYPASTA_JSON_URL,

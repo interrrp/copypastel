@@ -7,7 +7,7 @@ dependencies = ["requests>=2.32.3"]
 [tool.ruff]
 line-length = 100
 lint.select = ["ALL"]
-lint.ignore = ["D", "S311"]
+lint.ignore = ["D", "S311", "T201"]
 
 [tool.pyright]
 typeCheckingMode = "strict"
