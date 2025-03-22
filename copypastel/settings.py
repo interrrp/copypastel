@@ -12,4 +12,4 @@ def parse_duration(s: str) -> int:
 
 
 def get_interval_secs() -> int:
-    return parse_duration(getenv("COPYPASTEL_INTERVAL", "5m"))
+    return parse_duration(getenv("COPYPASTEL_INTERVAL", "10m"))
