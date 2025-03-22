@@ -7,4 +7,6 @@ def get_random_proxy() -> str:
 
 
 def get_proxies() -> list[str]:
-    return Path("proxies.txt").read_text().splitlines()
+    return [
+        proxy.strip() for proxy in Path("proxies.txt").read_text().splitlines() if proxy.strip()
+    ]
