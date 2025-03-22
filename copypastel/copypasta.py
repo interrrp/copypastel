@@ -28,7 +28,7 @@ def get_recent_copypastas() -> list[Copypasta]:
     response = requests.post(
         COPYPASTA_JSON_URL,
         headers={"User-Agent": USER_AGENT},
-        proxies={"socks5": f"socks5://{proxy}"},
+        proxies={"https": f"socks5://{proxy}"},
         timeout=REQUEST_TIMEOUT_SECS,
     )
     json = response.json()
