@@ -4,6 +4,7 @@ from dataclasses import dataclass
 import requests
 
 from copypastel import REQUEST_TIMEOUT_SECS
+from copypastel.proxies import get_random_proxy
 
 COPYPASTA_JSON_URL = "https://reddit.com/r/copypasta.json?limit=100"
 USER_AGENT = "Copypastel"
@@ -21,9 +22,12 @@ def get_random_copypasta() -> Copypasta:
 
 
 def get_recent_copypastas() -> list[Copypasta]:
-    response = requests.get(
+    proxy = get_random_proxy()
+
+    response = requests.post(
         COPYPASTA_JSON_URL,
         headers={"User-Agent": USER_AGENT},
+        proxies={"socks5": proxy},
         timeout=REQUEST_TIMEOUT_SECS,
     )
     json = response.json()

@@ -19,7 +19,9 @@ def main() -> None:
         except (AttributeError, HTTPError) as err:
             print(err)
 
-        sleep(get_interval_secs())
+        interval = get_interval_secs()
+        print("Waiting for", interval, "seconds")
+        sleep(interval)
 
 
 if __name__ == "__main__":
