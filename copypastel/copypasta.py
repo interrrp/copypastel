@@ -6,7 +6,7 @@ import requests
 
 from copypastel import REQUEST_TIMEOUT_SECS
 
-COPYPASTA_JSON_URL = "https://reddit.com/r/copypasta.json?limit=100"
+COPYPASTA_JSON_URL = "https://reddit.com/r/copypasta.json?limit=200"
 USER_AGENT = "Copypastel"
 
 
