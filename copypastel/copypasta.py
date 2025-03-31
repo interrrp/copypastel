@@ -1,5 +1,6 @@
-import random
+from collections.abc import Generator
 from dataclasses import dataclass
+from difflib import get_close_matches
 
 import requests
 
@@ -16,11 +17,25 @@ class Copypasta:
     url: str
 
 
-def get_random_copypasta() -> Copypasta:
-    return random.choice(get_recent_copypastas())
+def copypastas() -> Generator[Copypasta]:
+    seen_texts = set[str]()
+
+    while True:
+        recent = fetch_recent_copypastas()
+        skipped = 0
+
+        for copypasta in recent:
+            if any(get_close_matches(copypasta.text, seen_texts, n=1, cutoff=0.8)):
+                skipped += 1
+                continue
+
+            seen_texts.add(copypasta.text)
+            yield copypasta
+
+        print(f"Skipped {skipped} duplicate entries")
 
 
-def get_recent_copypastas() -> list[Copypasta]:
+def fetch_recent_copypastas() -> list[Copypasta]:
     response = requests.post(
         COPYPASTA_JSON_URL,
         headers={"User-Agent": USER_AGENT},
